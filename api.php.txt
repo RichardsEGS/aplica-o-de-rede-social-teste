@@ -1,0 +1,24 @@
+<?php
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+
+$posts = [
+    ['id' => 1, 'usuario' => 'EcoUser', 'conteudo' => 'Amei o sabonete natural!', 'likes' => 10],
+    ['id' => 2, 'usuario' => 'GreenFan', 'conteudo' => 'Esfoliante orgânico é top!', 'likes' => 5]
+];
+
+$usuarios = [
+    ['id' => 1, 'nome' => 'EcoUser', 'bio' => 'Amante de produtos naturais'],
+    ['id' => 2, 'nome' => 'GreenFan', 'bio' => 'Defensor da sustentabilidade']
+];
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (isset($_GET['endpoint'])) {
+        if ($_GET['endpoint'] === 'posts') {
+            echo json_encode($posts);
+        } elseif ($_GET['endpoint'] === 'usuarios') {
+            echo json_encode($usuarios);
+        }
+    }
+}
+?>

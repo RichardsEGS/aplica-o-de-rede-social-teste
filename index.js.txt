@@ -1,0 +1,29 @@
+import { useEffect, useState } from 'react';
+import styles from '../styles/Home.module.scss';
+
+export default function Home() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000?endpoint=posts').then(res => res.json()).then(setPosts);
+  }, []);
+
+  return (
+    <div className={styles.container}>
+      <h1>Rede Social Comunitária</h1>
+      <div className={styles.feed}>
+        {posts.map(post => (
+          <div key={post.id} className={styles.post}>
+            <h3>{post.usuario}</h3>
+            <p>{post.conteudo}</p>
+            <p>Likes: {post.likes}</p>
+            <button>Like</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
+Crie o projeto Next.js ( npx create-next-app social).

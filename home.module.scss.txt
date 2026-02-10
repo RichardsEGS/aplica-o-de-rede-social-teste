@@ -1,0 +1,32 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #F5F5DC;
+  color: #8B4513;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post, .perfil {
+  background: #FFFFFF;
+  border: 1px solid #8B4513;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button {
+  background-color: #8B4513;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+Como Rodar : npm run dev, acesse localhost:3000para feed e localhost:3000/perfilpara perfis.

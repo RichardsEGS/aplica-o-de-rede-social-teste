@@ -1,0 +1,22 @@
+import { useEffect, useState } from 'react';
+import styles from '../styles/Home.module.scss';
+
+export default function Perfil() {
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000?endpoint=usuarios').then(res => res.json()).then(setUsuarios);
+  }, []);
+
+  return (
+    <div className={styles.container}>
+      <h1>Perfis</h1>
+      {usuarios.map(user => (
+        <div key={user.id} className={styles.perfil}>
+          <h3>{user.nome}</h3>
+          <p>{user.bio}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
